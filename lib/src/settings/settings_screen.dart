@@ -94,7 +94,7 @@ class SettingsScreen extends StatelessWidget {
                 const SizedBox(height: 8),
                 PatternCard(
                   intensity: .4,
-                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  padding: const EdgeInsets.all(4),
                   child: Column(
                     children: [
                       _SwitchRow(
@@ -235,10 +235,14 @@ class SettingsScreen extends StatelessWidget {
                 const Eyebrow('SUPPORT THE APP'),
                 const SizedBox(height: 8),
                 PatternCard(
-                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  padding: const EdgeInsets.all(4),
                   child: Column(
                     children: [
                       ListTile(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                        splashColor: p.accent.withValues(alpha: .10),
                         leading: Icon(Icons.share_outlined, color: p.accent),
                         title: Text(
                           'Share app',
@@ -257,6 +261,10 @@ class SettingsScreen extends StatelessWidget {
                         color: p.border,
                       ),
                       ListTile(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                        splashColor: p.accent.withValues(alpha: .10),
                         leading: Icon(
                           Icons.star_outline_rounded,
                           color: p.accent,
@@ -278,7 +286,7 @@ class SettingsScreen extends StatelessWidget {
                 const Eyebrow('OUR OTHER APPS'),
                 const SizedBox(height: 8),
                 PatternCard(
-                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  padding: const EdgeInsets.all(4),
                   child: Column(
                     children: [
                       for (final (i, app) in _otherApps.indexed) ...[
@@ -290,12 +298,18 @@ class SettingsScreen extends StatelessWidget {
                             color: p.border,
                           ),
                         ListTile(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                          splashColor: p.accent.withValues(alpha: .10),
                           leading: ClipRRect(
                             borderRadius: BorderRadius.circular(12),
                             child: Image.asset(
                               app.icon,
-                              width: 44,
-                              height: 44,
+                              width: 48,
+                              height: 48,
+                              fit: BoxFit.cover,
+                              cacheWidth: 192,
                               excludeFromSemantics: true,
                             ),
                           ),
@@ -330,7 +344,7 @@ class SettingsScreen extends StatelessWidget {
                 const SizedBox(height: 8),
                 PatternCard(
                   intensity: .5,
-                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  padding: const EdgeInsets.all(4),
                   child: Column(
                     children: [
                       for (final (i, credit) in _fontCredits.indexed) ...[
@@ -416,6 +430,9 @@ class _CreditRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = context.palette;
     return InkWell(
+      borderRadius: BorderRadius.circular(18),
+      splashColor: p.accent.withValues(alpha: .10),
+      highlightColor: p.accent.withValues(alpha: .05),
       onTap: () {
         Clipboard.setData(ClipboardData(text: credit.url));
         showToast(context, 'Link to ${credit.source} copied');
@@ -520,6 +537,9 @@ class _SwitchRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final p = context.palette;
     return InkWell(
+      borderRadius: BorderRadius.circular(18),
+      splashColor: p.accent.withValues(alpha: .10),
+      highlightColor: p.accent.withValues(alpha: .05),
       onTap: () => onChanged(!value),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 8, 10, 8),
