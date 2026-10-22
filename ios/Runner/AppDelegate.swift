@@ -34,6 +34,17 @@ import UIKit
         }
         presenter.present(sheet, animated: true)
         result(nil)
+      case "openStore":
+        guard let arguments = call.arguments as? [String: Any],
+              let packageName = arguments["packageName"] as? String,
+              packageName.range(of: "^[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)+$", options: .regularExpression) != nil,
+              let storeURL = URL(string: "https://play.google.com/store/apps/details?id=\(packageName)") else {
+          result(FlutterError(code: "invalid_argument", message: "Invalid package name", details: nil))
+          return
+        }
+        UIApplication.shared.open(storeURL) { opened in
+          result(opened ? nil : FlutterError(code: "unavailable", message: "Cannot open Google Play", details: nil))
+        }
       case "rate":
         UIApplication.shared.open(url) { opened in
           result(opened ? nil : FlutterError(code: "unavailable", message: "Cannot open Google Play", details: nil))

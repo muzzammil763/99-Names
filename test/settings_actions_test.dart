@@ -37,4 +37,44 @@ void main() {
     expect(calls, ['share', 'rate']);
     expect(tester.takeException(), isNull);
   });
+  for (final brightness in Brightness.values) {
+    testWidgets('other app links on a narrow ${brightness.name} screen', (
+      tester,
+    ) async {
+      await tester.binding.setSurfaceSize(const Size(320, 640));
+      addTearDown(() => tester.binding.setSurfaceSize(null));
+      final calls = <MethodCall>[];
+      tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(channel, (
+        call,
+      ) async {
+        calls.add(call);
+        return null;
+      });
+      addTearDown(
+        () => tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+          channel,
+          null,
+        ),
+      );
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: buildTheme(brightness),
+          home: const SettingsScreen(),
+        ),
+      );
+      for (final (name, package) in [
+        ('Rafeeq', 'com.satechdev.rafeeqapp'),
+        ('FM Crafts', 'com.fmcrafts.fmcrafts'),
+        ('Budget AI', 'com.budgetai.android'),
+        ('Quran Khatam Tracker', 'com.quran.khatam.tracker'),
+      ]) {
+        await tester.scrollUntilVisible(find.text(name), 200);
+        await tester.tap(find.text(name));
+        await tester.pumpAndSettle();
+        expect(calls.last.method, 'openStore');
+        expect(calls.last.arguments, {'packageName': package});
+        expect(tester.takeException(), isNull);
+      }
+    });
+  }
 }

@@ -10,9 +10,16 @@ import 'settings_store.dart';
 const appVersion = '1.0.0';
 const _appActions = MethodChannel('com.muzamil.asmaulhusna/app_actions');
 
-Future<void> _openAppAction(BuildContext context, String action) async {
+Future<void> _openAppAction(
+  BuildContext context,
+  String action, [
+  String? packageName,
+]) async {
   try {
-    await _appActions.invokeMethod<void>(action);
+    await _appActions.invokeMethod<void>(
+      action,
+      packageName == null ? null : {'packageName': packageName},
+    );
   } on PlatformException {
     if (context.mounted) {
       showToast(context, 'Could not open this action. Please try again.');
@@ -268,6 +275,57 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: context.r(16)),
+                const Eyebrow('OUR OTHER APPS'),
+                const SizedBox(height: 8),
+                PatternCard(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  child: Column(
+                    children: [
+                      for (final (i, app) in _otherApps.indexed) ...[
+                        if (i > 0)
+                          Divider(
+                            height: 1,
+                            indent: 16,
+                            endIndent: 16,
+                            color: p.border,
+                          ),
+                        ListTile(
+                          leading: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Image.asset(
+                              app.icon,
+                              width: 44,
+                              height: 44,
+                              excludeFromSemantics: true,
+                            ),
+                          ),
+                          title: Text(
+                            app.name,
+                            style: TextStyle(
+                              color: p.title,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          subtitle: Text(
+                            'View on Google Play',
+                            style: TextStyle(color: p.muted),
+                          ),
+                          trailing: Icon(
+                            Icons.open_in_new_rounded,
+                            size: 18,
+                            color: p.accent,
+                          ),
+                          onTap: () => _openAppAction(
+                            context,
+                            'openStore',
+                            app.packageName,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+                SizedBox(height: context.r(16)),
                 const Eyebrow('FONTS & CREDITS'),
                 const SizedBox(height: 8),
                 PatternCard(
@@ -504,3 +562,26 @@ class _SwitchRow extends StatelessWidget {
     );
   }
 }
+
+const _otherApps = [
+  (
+    name: 'Rafeeq',
+    icon: 'assets/other_apps/rafeeq.png',
+    packageName: 'com.satechdev.rafeeqapp',
+  ),
+  (
+    name: 'FM Crafts',
+    icon: 'assets/other_apps/fm_crafts.png',
+    packageName: 'com.fmcrafts.fmcrafts',
+  ),
+  (
+    name: 'Budget AI',
+    icon: 'assets/other_apps/budget_ai.png',
+    packageName: 'com.budgetai.android',
+  ),
+  (
+    name: 'Quran Khatam Tracker',
+    icon: 'assets/other_apps/quran_khatam_tracker.png',
+    packageName: 'com.quran.khatam.tracker',
+  ),
+];

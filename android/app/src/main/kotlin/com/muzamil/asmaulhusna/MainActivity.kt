@@ -19,11 +19,17 @@ class MainActivity : FlutterActivity() {
                             type = "text/plain"
                             putExtra(Intent.EXTRA_TEXT, "99 Names - Asmaul Husna\n$url")
                         }, null))
-                        "rate" -> {
+                        "rate", "openStore" -> {
+                            val target = if (call.method == "rate") packageName else call.argument<String>("packageName")
+                            if (target == null || !target.matches(Regex("[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)+"))) {
+                                result.error("invalid_argument", "Invalid package name", null)
+                                return@setMethodCallHandler
+                            }
+                            val storeUrl = "https://play.google.com/store/apps/details?id=$target"
                             try {
-                                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.muzamil.asmaulhusna")).setPackage("com.android.vending"))
+                                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$target")).setPackage("com.android.vending"))
                             } catch (_: ActivityNotFoundException) {
-                                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+                                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(storeUrl)))
                             }
                         }
                         else -> { result.notImplemented(); return@setMethodCallHandler }
