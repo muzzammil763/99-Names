@@ -302,15 +302,21 @@ class SettingsScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(18),
                           ),
                           splashColor: p.accent.withValues(alpha: .10),
-                          leading: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: Image.asset(
-                              app.icon,
-                              width: 48,
-                              height: 48,
-                              fit: BoxFit.cover,
-                              cacheWidth: 192,
-                              excludeFromSemantics: true,
+                          leading: Container(
+                            foregroundDecoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(color: p.border),
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: Image.asset(
+                                app.icon,
+                                width: 48,
+                                height: 48,
+                                fit: BoxFit.cover,
+                                cacheWidth: 192,
+                                excludeFromSemantics: true,
+                              ),
                             ),
                           ),
                           title: Text(
