@@ -3,7 +3,7 @@
 ## Privacy policy URL
 
 ```
-https://muzzammil763.github.io/Asmaul-Husna/privacy-policy/
+https://99asmaulhusna.pages.dev/privacy
 ```
 
 ## App name (max 30)

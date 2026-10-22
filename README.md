@@ -47,8 +47,10 @@ Needs ImageMagick.
 `website/` is the landing page, live at
 https://99asmaulhusna.pages.dev (Cloudflare Pages). `node build.mjs` fills `src/index.html` with all 99 Names read from
 `lib/src/data/names.dart`, so the site's Names section never drifts from the
-app, and copies `public/` (fonts from `assets/fonts/`, screenshots, the privacy
-policy from `docs/privacy-policy/`) into `dist/`. Deploy with
+app, and copies `public/` (fonts from `assets/fonts/`, screenshots) and the
+privacy policy from `docs/privacy-policy/` into `dist/`. The privacy policy URL
+for Google Play (and any later store) is https://99asmaulhusna.pages.dev/privacy;
+edit `docs/privacy-policy/index.html` and redeploy to change it. Deploy with
 `cd website && npm run deploy`. Arabic and Urdu use the app's trimmed fonts, so
 any new Arabic or Urdu text on the site must already exist in the app; Boldonse
 and Google Sans are full copies.

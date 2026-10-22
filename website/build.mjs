@@ -46,5 +46,8 @@ const template = await readFile(path.join(here, 'src/index.html'), 'utf8');
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
 await cp(path.join(here, 'public'), dist, { recursive: true });
+// The privacy policy has one source, docs/privacy-policy/ (also on GitHub Pages).
+await mkdir(path.join(dist, 'privacy'), { recursive: true });
+await cp(path.join(here, '..', 'docs/privacy-policy/index.html'), path.join(dist, 'privacy/index.html'));
 await writeFile(path.join(dist, 'index.html'), template.replace('{{NAMES}}', grid));
 console.log(`dist/ built with ${names.length} Names`);
