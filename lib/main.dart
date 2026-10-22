@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -5,12 +7,14 @@ import 'package:flutter/services.dart';
 import 'src/home/home_screen.dart';
 import 'src/settings/settings_store.dart';
 import 'src/ui/theme.dart';
+import 'src/update/app_update.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SettingsStore.instance.load();
   _registerFontLicenses();
   runApp(const AsmaulHusnaApp());
+  unawaited(checkForAppUpdate());
 }
 
 /// The Open Font License travels with Google Sans and Boldonse; Flutter's

@@ -88,6 +88,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  in_app_update_flutter:
+    dependency: "direct main"
+    description:
+      name: in_app_update_flutter
+      sha256: b1955582e117529490ee90c6ad91c799bcdd8da5e4410f9201ac6d5eaa67a6b5
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
   leak_tracker:
     dependency: transitive
     description:

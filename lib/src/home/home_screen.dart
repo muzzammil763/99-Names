@@ -75,6 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 sliver: SliverList.list(
                   children: [
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Expanded(child: Eyebrow('ASMAUL HUSNA')),
                         HeaderButton(
@@ -96,24 +97,24 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: context.r(8)),
-                    const EditorialTitle('99 Names', size: 28),
-                    SizedBox(height: context.r(12)),
+                    const EditorialTitle('99 Names', size: 28, height: 1.35),
+                    const SizedBox(height: 8),
                     const _VerseCard(),
-                    SizedBox(height: context.r(12)),
+                    const SizedBox(height: 8),
                     _SearchField(
                       controller: _search,
                       onChanged: (v) => setState(() => _query = v),
                     ),
-                    SizedBox(height: context.r(12)),
-                    Row(
+                    const SizedBox(height: 8),
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
                       children: [
                         _FilterChip(
                           label: 'All 99',
                           selected: !_favouritesOnly,
                           onTap: () => setState(() => _favouritesOnly = false),
                         ),
-                        const SizedBox(width: 8),
                         _FilterChip(
                           label: 'Favourites  ${s.favourites.length}',
                           icon: Icons.favorite_rounded,
@@ -122,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: context.r(12)),
+                    const SizedBox(height: 8),
                   ],
                 ),
               ),
@@ -146,8 +147,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ? SliverGrid.builder(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
-                          mainAxisSpacing: 12,
-                          crossAxisSpacing: 12,
+                          mainAxisSpacing: 8,
+                          crossAxisSpacing: 8,
                           mainAxisExtent: context.r(190),
                         ),
                         itemCount: list.length,
@@ -187,7 +188,6 @@ class _VerseCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final p = context.palette;
-    final s = SettingsStore.instance;
     return PatternCard(
       tint: p.gold,
       intensity: 2,
@@ -197,39 +197,17 @@ class _VerseCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'وَلِلَّهِ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ فَٱدْعُوهُ بِهَا',
+            'اور اللہ کے سب نام اچھے ہی اچھے ہیں، تو اسے انہی ناموں سے پکارو',
             textAlign: TextAlign.center,
             textDirection: TextDirection.rtl,
             style: TextStyle(
-              fontFamily: AppFonts.arabic,
-              fontSize: context.r(36),
-              fontWeight: FontWeight.bold,
-              height: 1.5,
-              wordSpacing: 6,
-              color: p.accent,
+              fontFamily: AppFonts.urdu,
+              fontSize: context.r(30),
+              height: 1.6,
+              color: p.body,
             ),
           ),
-          if (s.showUrdu)
-            Text(
-              'اور اللہ کے سب نام اچھے ہی اچھے ہیں، تو اسے انہی ناموں سے پکارو',
-              textAlign: TextAlign.center,
-              textDirection: TextDirection.rtl,
-              style: TextStyle(
-                fontFamily: AppFonts.urdu,
-                fontSize: context.r(24),
-                height: 1.6,
-                color: p.body,
-              ),
-            ),
-          if (s.showEnglish) ...[
-            const SizedBox(height: 4),
-            Text(
-              'To Allah belong the most beautiful names, so call upon Him by them.',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: context.r(14), color: p.body),
-            ),
-          ],
-          const SizedBox(height: 6),
+          const SizedBox(height: 8),
           Text(
             "AL-A'RAF 7:180",
             textAlign: TextAlign.center,

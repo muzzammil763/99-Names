@@ -6,9 +6,16 @@ import 'theme.dart';
 
 /// Boldonse title whose last word is picked out in the accent colour.
 class EditorialTitle extends StatelessWidget {
-  const EditorialTitle(this.text, {super.key, this.size = 27, this.textAlign});
+  const EditorialTitle(
+    this.text, {
+    super.key,
+    this.size = 27,
+    this.height = 1.5,
+    this.textAlign,
+  });
   final String text;
   final double size;
+  final double height;
   final TextAlign? textAlign;
 
   @override
@@ -31,7 +38,7 @@ class EditorialTitle extends StatelessWidget {
       style: TextStyle(
         fontFamily: AppFonts.display,
         fontSize: context.r(size),
-        height: 1.5,
+        height: height,
         letterSpacing: -.8,
         color: p.title,
       ),

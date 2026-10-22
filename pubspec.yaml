@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  in_app_update_flutter: ^4.0.0
   shared_preferences: ^2.5.5
 
 dev_dependencies:

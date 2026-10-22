@@ -1,6 +1,6 @@
 # Asmaul Husna — agent notes
 
-- Flutter app `com.muzamil.asmaulhusna`, Android + iOS. Fully offline: no network, no analytics; `shared_preferences` is the only package. Don't add dependencies without asking.
+- Flutter app `com.muzamil.asmaulhusna`, Android + iOS. Offline: no network, no analytics. Packages: `shared_preferences`, and `in_app_update_flutter` (store update check on launch, `lib/src/update/app_update.dart`). Don't add dependencies without asking.
 - Colours only via `context.palette` (`AppPalette` in `lib/src/ui/theme.dart`); every screen must look right in light and dark.
 - Fonts via `AppFonts`: Google Sans (UI), Boldonse (titles), PDMS Saleem Quran (Arabic), Jameel Noori Nastaleeq (Urdu). Arabic/Urdu fonts draw small, so their sizes are large on purpose.
 - Content: `lib/src/data/names.dart` — exactly 99 names in order (tested).
