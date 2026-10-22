@@ -41,41 +41,41 @@ class AppPalette extends ThemeExtension<AppPalette> {
   final Color patternInk;
   final Color shadow;
 
-  /// Near-black canvas, royal indigo accent, warm gold.
+  /// Ink-blue canvas with soft blue and muted bronze accents.
   static const dark = AppPalette(
-    background: Color(0xFF0B0B12),
-    surface: Color(0xFF15151F),
-    surfaceRaised: Color(0xFF1D1D2A),
-    border: Color(0xFF262636),
-    accent: Color(0xFF8B93FF),
-    onAccent: Color(0xFF0D0F33),
-    accentDeep: Color(0xFF242650),
-    gold: Color(0xFFFFC66D),
+    background: Color(0xFF101820),
+    surface: Color(0xFF18232E),
+    surfaceRaised: Color(0xFF21303D),
+    border: Color(0xFF30404E),
+    accent: Color(0xFFA5C5DE),
+    onAccent: Color(0xFF142838),
+    accentDeep: Color(0xFF293F50),
+    gold: Color(0xFFD9BC89),
     title: Colors.white,
-    body: Color(0xFFBDBFD0),
-    muted: Color(0xFF8C8EA3),
-    faint: Color(0xFF5E6075),
+    body: Color(0xFFC9D1D8),
+    muted: Color(0xFFA0AFBB),
+    faint: Color(0xFF758693),
     patternInk: Colors.white,
     shadow: Color(0x66000000),
   );
 
-  /// Warm parchment canvas with the same indigo and gold, deepened for
+  /// Warm ivory canvas with blue and bronze, deepened for
   /// contrast on a light ground.
   static const light = AppPalette(
-    background: Color(0xFFF7F4EE),
+    background: Color(0xFFFAF8F3),
     surface: Color(0xFFFFFFFF),
-    surfaceRaised: Color(0xFFF1EEE6),
-    border: Color(0xFFE4DFD3),
-    accent: Color(0xFF4F55D9),
+    surfaceRaised: Color(0xFFEFEDE6),
+    border: Color(0xFFE3E5E4),
+    accent: Color(0xFF345F7B),
     onAccent: Colors.white,
-    accentDeep: Color(0xFFE3E4FB),
-    gold: Color(0xFFB9822A),
-    title: Color(0xFF17172A),
-    body: Color(0xFF45465A),
-    muted: Color(0xFF75768A),
-    faint: Color(0xFFA5A6B5),
-    patternInk: Color(0xFF2A2C6B),
-    shadow: Color(0x1A2A2C6B),
+    accentDeep: Color(0xFFE5EDF2),
+    gold: Color(0xFF906C38),
+    title: Color(0xFF1B2B36),
+    body: Color(0xFF455865),
+    muted: Color(0xFF667985),
+    faint: Color(0xFF8B9BA5),
+    patternInk: Color(0xFF345F7B),
+    shadow: Color(0x1A345F7B),
   );
 
   @override
@@ -160,7 +160,7 @@ ThemeData buildTheme(Brightness brightness) {
     ),
     snackBarTheme: SnackBarThemeData(
       behavior: SnackBarBehavior.floating,
-      backgroundColor: dark ? const Color(0xFF2A2B3D) : const Color(0xFF23244A),
+      backgroundColor: dark ? const Color(0xFF293F50) : const Color(0xFF203747),
       contentTextStyle: const TextStyle(
         fontFamily: AppFonts.sans,
         color: Colors.white,

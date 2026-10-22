@@ -66,14 +66,14 @@ class _NameDetailScreenState extends State<NameDetailScreen> {
               child: IslamicPattern(
                 style: PatternStyle.hexagons,
                 cell: 70,
-                opacity: .035,
+                opacity: .012,
               ),
             ),
             SafeArea(
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+                    padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
                     child: Row(
                       children: [
                         HeaderButton(
@@ -121,7 +121,7 @@ class _NameDetailScreenState extends State<NameDetailScreen> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(12, 6, 12, 12),
+                    padding: const EdgeInsets.fromLTRB(20, 6, 20, 12),
                     child: Row(
                       children: [
                         _NavButton(

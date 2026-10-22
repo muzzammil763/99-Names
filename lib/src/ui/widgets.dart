@@ -242,7 +242,7 @@ class PatternCard extends StatelessWidget {
     required this.child,
     this.tint,
     this.padding = const EdgeInsets.all(12),
-    this.radius = 18,
+    this.radius = 22,
     this.intensity = 1,
     this.highlight = false,
     this.onTap,
@@ -274,10 +274,12 @@ class PatternCard extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [Color.lerp(p.surface, tint, .08 * intensity)!, p.surface],
+          colors: [Color.lerp(p.surface, tint, .025 * intensity)!, p.surface],
         ),
         border: Border.all(
-          color: highlight ? tint : Color.lerp(p.border, tint, .3 * intensity)!,
+          color: highlight
+              ? tint
+              : Color.lerp(p.border, tint, .08 * intensity)!,
           width: highlight ? 1.6 : 1,
         ),
         boxShadow: [
@@ -286,8 +288,8 @@ class PatternCard extends StatelessWidget {
           else if (!context.isDark)
             BoxShadow(
               color: p.shadow,
-              blurRadius: 14,
-              offset: const Offset(0, 4),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
             ),
         ],
       ),
@@ -303,7 +305,7 @@ class PatternCard extends StatelessWidget {
                 Positioned.fill(
                   child: IslamicPattern(
                     color: Color.lerp(p.patternInk, tint, .5),
-                    opacity: (context.isDark ? .03 : .04) + .02 * intensity,
+                    opacity: intensity >= 2 ? .025 : 0,
                     cell: 48,
                   ),
                 ),

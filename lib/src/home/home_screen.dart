@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _build(BuildContext context, SettingsStore s) {
     final list = _visible(s);
-    final side = context.r(12);
+    final side = context.r(20);
     return Scaffold(
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Row(
                       children: [
-                        Expanded(child: Eyebrow('99 BEAUTIFUL NAMES')),
+                        Expanded(child: Eyebrow('ASMAUL HUSNA')),
                         HeaderButton(
                           icon: s.gridLayout
                               ? Icons.view_agenda_outlined
@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     SizedBox(height: context.r(8)),
-                    const EditorialTitle('99 Names', size: 30),
+                    const EditorialTitle('99 Names', size: 28),
                     SizedBox(height: context.r(12)),
                     const _VerseCard(),
                     SizedBox(height: context.r(12)),
@@ -146,9 +146,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ? SliverGrid.builder(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
-                          mainAxisSpacing: 8,
-                          crossAxisSpacing: 8,
-                          mainAxisExtent: context.r(172),
+                          mainAxisSpacing: 12,
+                          crossAxisSpacing: 12,
+                          mainAxisExtent: context.r(190),
                         ),
                         itemCount: list.length,
                         itemBuilder: (_, i) => NameGridCard(
@@ -191,7 +191,7 @@ class _VerseCard extends StatelessWidget {
     return PatternCard(
       tint: p.gold,
       intensity: 2,
-      radius: 16,
+      radius: 24,
       padding: EdgeInsets.fromLTRB(18, context.r(14), 18, context.r(16)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -206,7 +206,7 @@ class _VerseCard extends StatelessWidget {
               fontWeight: FontWeight.bold,
               height: 1.5,
               wordSpacing: 6,
-              color: p.gold,
+              color: p.accent,
             ),
           ),
           if (s.showUrdu)
