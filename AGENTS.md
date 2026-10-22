@@ -12,4 +12,4 @@
 ## Rules
 - New font → also credit it in Settings (`_fontCredits`) and README.
 - Before committing: `dart format lib`, `flutter analyze`, `flutter test`.
-- Small conventional commits (`feat:`, `style:`, `build:`…); push to `muzzammil763/Asmaul-Husna` (`main`).
+- Small conventional commits (`feat:`, `style:`, `build:`…); push to `muzzammil763/99-Names` (`main`).

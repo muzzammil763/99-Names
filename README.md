@@ -1,4 +1,10 @@
-# Asmaul Husna
+<div align="center">
+  <img src=".github/readme/icon.png" alt="99 Names app icon" width="128" height="128">
+  <h1>99 Names - Asmaul Husna</h1>
+  <p>The 99 beautiful names of Allah. Arabic, English and Urdu. Fully offline.</p>
+  <a href="https://play.google.com/store/apps/details?id=com.muzamil.asmaulhusna"><img src=".github/readme/google-play.svg" alt="Get it on Google Play" width="220" height="72"></a>
+</div>
+
 
 The 99 beautiful names of Allah — Arabic, transliteration, English and Urdu
 meanings, with a short reflection for each. Fully offline: no account, no
@@ -7,6 +13,19 @@ network permission, no analytics.
 - Package / bundle ID: `com.muzamil.asmaulhusna`
 - Themes: System, Light, Dark (royal indigo + gold)
 - Content: `lib/src/data/names.dart`
+
+## Screenshots
+
+<p align="center">
+  <a href="store/playstore/01.png"><img src="store/playstore/01.png" alt="99 Names app screenshot 1" width="180"></a>
+  <a href="store/playstore/02.png"><img src="store/playstore/02.png" alt="99 Names app screenshot 2" width="180"></a>
+  <a href="store/playstore/03.png"><img src="store/playstore/03.png" alt="99 Names app screenshot 3" width="180"></a>
+  <a href="store/playstore/04.png"><img src="store/playstore/04.png" alt="99 Names app screenshot 4" width="180"></a>
+  <a href="store/playstore/05.png"><img src="store/playstore/05.png" alt="99 Names app screenshot 5" width="180"></a>
+  <a href="store/playstore/06.png"><img src="store/playstore/06.png" alt="99 Names app screenshot 6" width="180"></a>
+  <a href="store/playstore/07.png"><img src="store/playstore/07.png" alt="99 Names app screenshot 7" width="180"></a>
+  <a href="store/playstore/08.png"><img src="store/playstore/08.png" alt="99 Names app screenshot 8" width="180"></a>
+</p>
 
 ## Fonts & credits
 
@@ -63,3 +82,15 @@ and Google Sans are full copies.
 
 Android release builds are still signed with the debug key — add a signing
 config in `android/app/build.gradle.kts` before publishing.
+
+## Contributing
+
+Contributions are welcome! Open an issue or send a pull request.
+
+## Contributors
+
+<a href="https://github.com/muzzammil763"><img src=".github/readme/contributor.png" alt="muzzammil763" title="muzzammil763" width="64" height="64"></a>
+
+## Feature graphic
+
+<img src="store/playstore/feature_graphic.png" alt="99 Names - Asmaul Husna feature graphic" width="1024">
