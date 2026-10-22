@@ -49,3 +49,6 @@ app.*.map.json
 
 # Icon renders from tool/icon/make_icons.sh
 /branding/
+
+# Social post plan (local only)
+/LINKEDIN-POSTS.md
