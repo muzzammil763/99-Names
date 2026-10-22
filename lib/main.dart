@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 
 import 'src/home/home_screen.dart';
 import 'src/settings/settings_store.dart';
-import 'src/splash/splash_screen.dart';
 import 'src/ui/theme.dart';
 
 Future<void> main() async {
@@ -53,7 +52,7 @@ class AsmaulHusnaApp extends StatelessWidget {
           child: child!,
         );
       },
-      home: const SplashScreen(next: HomeScreen()),
+      home: const HomeScreen(),
     ),
   );
 }
