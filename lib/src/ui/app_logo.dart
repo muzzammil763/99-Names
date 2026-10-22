@@ -1,113 +1,45 @@
 import 'package:flutter/material.dart';
 
 import 'theme.dart';
-import 'widgets.dart';
+import 'wordmark_path.dart';
 
-/// Which part of the logo to draw. The launcher icons are rendered from
-/// these (see tool/icon/), so the app and its icon always match.
-enum LogoLayer {
-  /// Background and lettering together: the iOS and legacy Android icon.
-  full,
+/// Layers shared by the in-app logo and native launcher icon exports.
+enum LogoLayer { full, background, foreground, monochrome }
 
-  /// Indigo night and gold pattern only (Android adaptive background).
-  background,
-
-  /// Gold lettering on transparent (Android adaptive foreground).
-  foreground,
-
-  /// White lettering on transparent (Android 13 themed icon).
-  monochrome,
-}
-
-/// "ٱللَّٰهُ" in the app's Arabic font, gold on a deep indigo night.
+/// Approved stacked Urdu wordmark: اسماء الحسنیٰ.
+/// Outlined Nastaleeq keeps the calligraphy identical at every size.
 class AppLogo extends StatelessWidget {
   const AppLogo({
     super.key,
     this.size = 64,
     this.layer = LogoLayer.full,
     this.radius,
-    this.textScale = .47,
+    this.wordmarkScale = 1,
   });
 
   final double size;
   final LogoLayer layer;
-
-  /// Corner radius; null keeps square corners for the icon renders.
   final double? radius;
 
-  /// Width of the lettering as a share of [size]; its ink is about 1.2×
-  /// as tall. Adaptive icons pass less, since launchers crop to the middle.
-  final double textScale;
-
-  static const _night = Color(0xFF0B0B12);
-  static const _indigo = Color(0xFF2B2E6E);
-  static const _gold = Color(0xFFFFC66D);
+  /// Adaptive launcher layers use a smaller mark to stay inside crop masks.
+  final double wordmarkScale;
 
   @override
   Widget build(BuildContext context) {
-    final background = layer == LogoLayer.full || layer == LogoLayer.background;
-    final lettering = layer != LogoLayer.background;
-    Widget logo = SizedBox.square(
-      dimension: size,
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          if (background) ...[
-            const DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: RadialGradient(
-                  center: Alignment(0, -.15),
-                  radius: .85,
-                  colors: [_indigo, _night],
-                ),
-              ),
-            ),
-            IslamicPattern(
-              style: PatternStyle.rosettes,
-              color: _gold,
-              opacity: .09,
-              cell: size / 4,
-            ),
-            // Soft halo behind the lettering.
-            const DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: RadialGradient(
-                  center: Alignment(0, -.05),
-                  radius: .45,
-                  colors: [Color(0x33FFC66D), Color(0x00FFC66D)],
-                ),
-              ),
-            ),
-          ],
-          if (lettering)
-            Center(
-              // The font's line box sits the ink high; nudge it to centre.
-              child: Transform.translate(
-                offset: Offset(0, size * textScale * .57),
-                child: SizedBox(
-                  width: size * textScale,
-                  child: FittedBox(
-                    child: Text(
-                      'ٱللَّٰهُ',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        fontFamily: AppFonts.arabic,
-                        fontSize: 100,
-                        color: layer == LogoLayer.monochrome
-                            ? Colors.white
-                            : _gold,
-                        shadows: layer == LogoLayer.monochrome
-                            ? null
-                            : const [
-                                Shadow(color: Color(0x66000000), blurRadius: 6),
-                              ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-        ],
+    final p = context.palette;
+    Widget logo = Semantics(
+      label: '99 Names — Asmaul Husna',
+      image: true,
+      child: SizedBox.square(
+        dimension: size,
+        child: CustomPaint(
+          painter: _WordmarkPainter(
+            background: p.logoBackground,
+            ink: layer == LogoLayer.monochrome ? p.surface : p.logoInk,
+            layer: layer,
+            scale: wordmarkScale,
+          ),
+        ),
       ),
     );
     if (radius != null) {
@@ -118,4 +50,41 @@ class AppLogo extends StatelessWidget {
     }
     return logo;
   }
+}
+
+class _WordmarkPainter extends CustomPainter {
+  _WordmarkPainter({
+    required this.background,
+    required this.ink,
+    required this.layer,
+    required this.scale,
+  });
+
+  final Color background;
+  final Color ink;
+  final LogoLayer layer;
+  final double scale;
+  static final Path _wordmark = createWordmarkPath();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    if (layer == LogoLayer.full || layer == LogoLayer.background) {
+      canvas.drawRect(Offset.zero & size, Paint()..color = background);
+    }
+    if (layer == LogoLayer.background) return;
+    canvas.save();
+    canvas.scale(size.width / 256, size.height / 256);
+    canvas.translate(128, 128);
+    canvas.scale(scale);
+    canvas.translate(-128, -128);
+    canvas.drawPath(_wordmark, Paint()..color = ink);
+    canvas.restore();
+  }
+
+  @override
+  bool shouldRepaint(_WordmarkPainter old) =>
+      old.background != background ||
+      old.ink != ink ||
+      old.layer != layer ||
+      old.scale != scale;
 }

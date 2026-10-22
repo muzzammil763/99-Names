@@ -22,6 +22,8 @@ class AppPalette extends ThemeExtension<AppPalette> {
     required this.faint,
     required this.patternInk,
     required this.shadow,
+    required this.logoBackground,
+    required this.logoInk,
   });
 
   final Color background;
@@ -40,9 +42,13 @@ class AppPalette extends ThemeExtension<AppPalette> {
   /// Base colour of the geometric line patterns.
   final Color patternInk;
   final Color shadow;
+  final Color logoBackground;
+  final Color logoInk;
 
   /// Ink-blue canvas with soft blue and muted bronze accents.
   static const dark = AppPalette(
+    logoBackground: Color(0xFF101820),
+    logoInk: Color(0xFFD9BC89),
     background: Color(0xFF101820),
     surface: Color(0xFF18232E),
     surfaceRaised: Color(0xFF21303D),
@@ -62,6 +68,8 @@ class AppPalette extends ThemeExtension<AppPalette> {
   /// Warm ivory canvas with blue and bronze, deepened for
   /// contrast on a light ground.
   static const light = AppPalette(
+    logoBackground: Color(0xFF101820),
+    logoInk: Color(0xFFD9BC89),
     background: Color(0xFFFAF8F3),
     surface: Color(0xFFFFFFFF),
     surfaceRaised: Color(0xFFEFEDE6),
@@ -86,6 +94,8 @@ class AppPalette extends ThemeExtension<AppPalette> {
     if (other == null) return this;
     Color l(Color a, Color b) => Color.lerp(a, b, t)!;
     return AppPalette(
+      logoBackground: l(logoBackground, other.logoBackground),
+      logoInk: l(logoInk, other.logoInk),
       background: l(background, other.background),
       surface: l(surface, other.surface),
       surfaceRaised: l(surfaceRaised, other.surfaceRaised),

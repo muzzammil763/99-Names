@@ -21,4 +21,10 @@ for f in ios/Runner/Assets.xcassets/AppIcon.appiconset/*.png; do
   px=$(magick identify -format %w "$f")
   magick branding/icon_1024.png -resize ${px}x${px} -alpha off -strip "$f"
 done
-echo "Icons written."
+# Keep store, README and website identity in sync with the same master.
+magick branding/icon_1024.png -resize 512x512 -alpha off -strip store/app_icon.png
+cp branding/icon_1024.png .github/readme/icon.png
+cp branding/icon_1024.png website/public/img/logo.png
+magick branding/icon_1024.png -resize 64x64 -alpha off -strip website/public/favicon.png
+magick branding/icon_1024.png -resize 180x180 -alpha off -strip website/public/apple-touch-icon.png
+echo "Native, store and website icons written."

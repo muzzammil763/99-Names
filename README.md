@@ -53,15 +53,21 @@ used, and checks the trimmed font lays them out identically.
 
 ## App icon
 
-The icon is the `AppLogo` widget (`lib/src/ui/app_logo.dart`): "ٱللَّٰهُ" in
-PDMS Saleem Quran, gold on deep indigo, so it matches the app exactly. The same
-widget appears in Settings → About. To regenerate every icon after changing it:
+The icon uses the approved stacked Urdu **اسماء الحسنیٰ** wordmark: outlined
+Jameel Noori Nastaleeq lettering in muted bronze on ink blue. The same
+`AppLogo` widget appears in Settings → About and generates the native icons.
+The vector master and usage notes live in [`design/brand/`](design/brand).
 
+To update the vector geometry and regenerate every icon:
+
+    python3 tool/icon/build_wordmark.py
     tool/icon/make_icons.sh
 
-This renders the logo to `branding/` and writes the iOS icons plus Android's
-legacy, adaptive (background + foreground) and Android 13 themed icons.
-Needs ImageMagick.
+The first command requires `fonttools`; the second requires Flutter and
+ImageMagick. Exports include iOS icons, Android legacy/adaptive/themed icons,
+the Play Store icon (`store/app_icon.png`), website icons and the README asset.
+After icon changes, also run `tool/screenshots/make_screenshots.sh` so screenshots
+show the current identity.
 
 ## Website
 
