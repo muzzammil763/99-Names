@@ -45,8 +45,7 @@ Needs ImageMagick.
 ## Website
 
 `website/` is the landing page, live at
-https://asmaul-husna.deadbase763.workers.dev (Cloudflare Workers static
-assets). `node build.mjs` fills `src/index.html` with all 99 Names read from
+https://99asmaulhusna.pages.dev (Cloudflare Pages). `node build.mjs` fills `src/index.html` with all 99 Names read from
 `lib/src/data/names.dart`, so the site's Names section never drifts from the
 app, and copies `public/` (fonts from `assets/fonts/`, screenshots, the privacy
 policy from `docs/privacy-policy/`) into `dist/`. Deploy with

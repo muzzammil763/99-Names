@@ -4,8 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
-    "deploy": "node build.mjs && wrangler deploy",
-    "preview": "wrangler dev"
+    "deploy": "node build.mjs && wrangler pages deploy dist --project-name 99asmaulhusna --branch main"
   },
   "devDependencies": {
     "wrangler": "^4.151.3"
