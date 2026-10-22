@@ -11,21 +11,23 @@ meanings, with a short reflection for each. Fully offline: no account, no
 network permission, no analytics.
 
 - Package / bundle ID: `com.muzamil.asmaulhusna`
-- Themes: System, Light, Dark (royal indigo + gold)
+- Themes: System, Light, Dark (ink blue, ivory + bronze)
 - Content: `lib/src/data/names.dart`
 
 ## Screenshots
 
 <p align="center">
-  <a href="store/playstore/01.png"><img src="store/playstore/01.png" alt="99 Names app screenshot 1" width="180"></a>
-  <a href="store/playstore/02.png"><img src="store/playstore/02.png" alt="99 Names app screenshot 2" width="180"></a>
-  <a href="store/playstore/03.png"><img src="store/playstore/03.png" alt="99 Names app screenshot 3" width="180"></a>
-  <a href="store/playstore/04.png"><img src="store/playstore/04.png" alt="99 Names app screenshot 4" width="180"></a>
-  <a href="store/playstore/05.png"><img src="store/playstore/05.png" alt="99 Names app screenshot 5" width="180"></a>
-  <a href="store/playstore/06.png"><img src="store/playstore/06.png" alt="99 Names app screenshot 6" width="180"></a>
-  <a href="store/playstore/07.png"><img src="store/playstore/07.png" alt="99 Names app screenshot 7" width="180"></a>
-  <a href="store/playstore/08.png"><img src="store/playstore/08.png" alt="99 Names app screenshot 8" width="180"></a>
+  <a href="store/playstore/01.png"><img src="store/playstore/01.png" alt="Browse all 99 Names in Arabic, English and Urdu" width="180"></a>
+  <a href="store/playstore/02.png"><img src="store/playstore/02.png" alt="Read Ar-Rahman with its meaning and reflection" width="180"></a>
+  <a href="store/playstore/03.png"><img src="store/playstore/03.png" alt="Reflect on As-Sabur, The Most Patient" width="180"></a>
+  <a href="store/playstore/04.png"><img src="store/playstore/04.png" alt="Return to saved favourite Names" width="180"></a>
+  <a href="store/playstore/05.png"><img src="store/playstore/05.png" alt="Search Names by meaning" width="180"></a>
+  <a href="store/playstore/06.png"><img src="store/playstore/06.png" alt="Browse the Names in a grid" width="180"></a>
+  <a href="store/playstore/07.png"><img src="store/playstore/07.png" alt="Read comfortably with the dark theme" width="180"></a>
+  <a href="store/playstore/08.png"><img src="store/playstore/08.png" alt="Customize appearance and Arabic text size" width="180"></a>
 </p>
+
+For reproducible app captures and Play Store artwork, see [the screenshot guide](tool/screenshots/README.md).
 
 ## Fonts & credits
 

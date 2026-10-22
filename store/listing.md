@@ -9,7 +9,7 @@ https://99asmaulhusna.pages.dev/privacy
 ## App name (max 30)
 
 ```
-Asmaul Husna: 99 Names
+99 Names - Asmaul Husna
 ```
 
 ## Short description (max 80)

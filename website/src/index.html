@@ -8,8 +8,8 @@
 <link rel="canonical" href="https://99asmaulhusna.pages.dev/">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="theme-color" content="#F7F4EE" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0B0B12" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FAF8F3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101820" media="(prefers-color-scheme: dark)">
 <meta name="google-play-app" content="app-id=com.muzamil.asmaulhusna">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="99 Names - Asmaul Husna">
@@ -26,25 +26,25 @@
 @font-face { font-family: 'Saleem'; src: url('/fonts/saleem-quran.ttf') format('truetype'); font-display: swap; }
 @font-face { font-family: 'Nastaleeq'; src: url('/fonts/nastaleeq.ttf') format('truetype'); font-display: swap; }
 
-/* The app's own palettes (lib/src/ui/theme.dart): parchment, indigo and gold
-   by day; near-black, soft indigo and warm gold by night. */
+/* The app's own palettes (lib/src/ui/theme.dart): ivory, ink blue and bronze
+   by day; ink blue, soft blue and muted bronze by night. */
 :root {
-  --bg: #F7F4EE; --surface: #FFFFFF; --raised: #F1EEE6; --border: #E4DFD3;
-  --accent: #4F55D9; --accent-soft: #E3E4FB; --on-accent: #FFFFFF; --gold: #B9822A;
-  --title: #17172A; --body: #45465A; --muted: #75768A; --ink: #2A2C6B;
-  --night: #15163A; --night-2: #262A6B; --night-gold: #FFC66D;
+  --bg: #FAF8F3; --surface: #FFFFFF; --raised: #EFEDE6; --border: #E3E5E4;
+  --accent: #345F7B; --accent-soft: #E5EDF2; --on-accent: #FFFFFF; --gold: #906C38;
+  --title: #1B2B36; --body: #455865; --muted: #667985; --ink: #345F7B;
+  --night: #203747; --night-2: #345F7B; --night-gold: #D9BC89;
   --shadow: 0 30px 60px -24px rgba(42, 44, 107, .35);
   --max: 1160px;
-  --display: 'Boldonse', 'Arial Black', system-ui, sans-serif;
+  --display: 'Google Sans', system-ui, sans-serif;
   --sans: 'Google Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0B0B12; --surface: #15151F; --raised: #1D1D2A; --border: #262636;
-    --accent: #8B93FF; --accent-soft: #242650; --on-accent: #0D0F33; --gold: #FFC66D;
-    --title: #FFFFFF; --body: #BDBFD0; --muted: #8C8EA3; --ink: #8B93FF;
-    --night: #101129; --night-2: #1F2258;
+    --bg: #101820; --surface: #18232E; --raised: #21303D; --border: #30404E;
+    --accent: #A5C5DE; --accent-soft: #293F50; --on-accent: #142838; --gold: #D9BC89;
+    --title: #FFFFFF; --body: #C9D1D8; --muted: #A0AFBB; --ink: #A5C5DE;
+    --night: #14202B; --night-2: #293F50;
     --shadow: 0 30px 60px -20px rgba(0, 0, 0, .7);
     color-scheme: dark;
   }
@@ -61,11 +61,11 @@ a { color: inherit; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
 .container { width: min(100% - 32px, var(--max)); margin-inline: auto; }
 .lattice {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke='%237d80c8' stroke-opacity='.16' stroke-width='1.4'%3E%3Crect x='35' y='35' width='50' height='50'/%3E%3Crect x='35' y='35' width='50' height='50' transform='rotate(45 60 60)'/%3E%3Ccircle cx='60' cy='60' r='9'/%3E%3Cpath d='M0 60h25M95 60h25M60 0v25M60 95v25'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke='%23345f7b' stroke-opacity='.05' stroke-width='1.4'%3E%3Crect x='35' y='35' width='50' height='50'/%3E%3Crect x='35' y='35' width='50' height='50' transform='rotate(45 60 60)'/%3E%3Ccircle cx='60' cy='60' r='9'/%3E%3Cpath d='M0 60h25M95 60h25M60 0v25M60 95v25'/%3E%3C/svg%3E");
   background-size: 120px 120px;
 }
 .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
-h1, h2 { font-family: var(--display); font-weight: 400; color: var(--title); margin: 0; letter-spacing: -.01em; text-wrap: balance; }
+h1, h2 { font-family: var(--display); font-weight: 700; color: var(--title); margin: 0; letter-spacing: -.01em; text-wrap: balance; }
 h1 { font-size: clamp(34px, 5.6vw, 64px); line-height: 1.32; }
 h2 { font-size: clamp(26px, 3.8vw, 42px); line-height: 1.32; }
 h1 em, h2 em { font-style: normal; color: var(--accent); }
@@ -109,29 +109,17 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .hero .lead { margin: 22px 0 28px; }
 .trust { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
 .trust span { font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); color: var(--body); }
-.hero-art { position: relative; min-height: 560px; }
-.ayah {
-  position: absolute; left: 0; top: 40px; width: min(380px, 78%); z-index: 2;
-  padding: 22px 24px; border-radius: 22px; text-align: center;
-  background: linear-gradient(160deg, #FFF8EC, #F6EBD7); border: 1px solid #E8D6B2;
-  box-shadow: var(--shadow); color: #45465A;
-}
-@media (prefers-color-scheme: dark) { .ayah { background: linear-gradient(160deg, #22202a, #1b1a24); border-color: #3a3326; color: #BDBFD0; } }
-.ayah .arabic { font-size: 34px; line-height: 1.7; color: var(--gold); }
-.ayah .urdu { font-size: 21px; line-height: 1.9; margin-top: 4px; }
-.ayah p { margin: 6px 0 0; font-size: 14px; line-height: 1.45; }
-.ayah small { display: block; margin-top: 8px; font-size: 11px; font-weight: 700; letter-spacing: .18em; color: var(--muted); }
+.hero-art { display: flex; justify-content: center; align-items: center; min-height: 660px; }
 .phone {
   --w: 290px; width: var(--w); padding: calc(var(--w) * .032); border-radius: calc(var(--w) * .15);
   background: #111218; box-shadow: 0 0 0 calc(var(--w) * .006) #3a3b45, var(--shadow); flex: none;
 }
 .phone img { border-radius: calc(var(--w) * .125); width: 100%; }
-.hero-art .phone { position: absolute; right: 0; top: 0; transform: rotate(4deg); --w: 300px; }
+.hero-art .phone { --w: 300px; }
 @media (max-width: 880px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-art { min-height: 520px; max-width: 460px; margin-inline: auto; width: 100%; }
-  .hero-art .phone { --w: 260px; }
-  .ayah { top: auto; bottom: 0; width: 82%; }
+  .hero-art { min-height: 0; max-width: 460px; margin-inline: auto; width: 100%; }
+  .hero-art .phone { --w: min(300px, 82vw); }
 }
 
 /* Features */
@@ -181,6 +169,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   padding: 18px 20px 16px; border-radius: 20px; background: var(--surface); border: 1px solid var(--border);
   cursor: pointer; transition: border-color .2s ease, transform .2s ease;
 }
+.name[hidden] { display: none; }
 .name:hover { border-color: var(--accent); transform: translateY(-2px); }
 .name .num { grid-area: num; align-self: start; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); font-size: 12px; font-weight: 700; }
 .name .ar { grid-area: ar; font-family: 'Saleem', serif; font-size: 40px; line-height: 1.5; color: var(--title); text-align: right; }
@@ -232,7 +221,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
     <div class="container hero-grid">
       <div class="reveal">
         <div class="eyebrow">The 99 Beautiful Names of Allah</div>
-        <h1 style="margin-top:16px">Learn the 99 Names. <em>Keep them close.</em></h1>
+        <h1 style="margin-top:16px">99 beautiful Names.<br><em>A moment to reflect.</em></h1>
         <p class="lead">Every Name in Arabic calligraphy, with transliteration, English and Urdu meanings and a short reflection. Calm, simple and fully offline.</p>
         <a class="play" href="https://play.google.com/store/apps/details?id=com.muzamil.asmaulhusna" rel="noopener" aria-label="Get Asmaul Husna on Google Play">
           <img src="/google-play-badge.png" alt="Get it on Google Play" width="646" height="250">
@@ -240,12 +229,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         <div class="trust"><span>Free</span><span>Works offline</span><span>No ads</span><span>No tracking</span><span>English &amp; <span class="urdu" style="font-size:16px">اردو</span></span></div>
       </div>
       <div class="hero-art reveal">
-        <div class="phone"><img src="/img/home.webp" alt="Asmaul Husna home screen with the list of Names" width="720" height="1600" fetchpriority="high"></div>
-        <figure class="ayah" style="margin:0">
-          <div class="arabic" lang="ar">وَلِلَّهِ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ فَٱدْعُوهُ بِهَا</div>
-          <p>“To Allah belong the most beautiful names, so call upon Him by them.”</p>
-          <small>AL-A'RAF 7:180</small>
-        </figure>
+        <div class="phone"><picture><source media="(prefers-color-scheme: dark)" srcset="/img/dark.webp"><img src="/img/home.webp" alt="99 Names home screen" width="780" height="1688" fetchpriority="high"></picture></div>
       </div>
     </div>
   </section>
@@ -266,8 +250,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
           </ul>
         </div>
         <div class="shots">
-          <div class="phone"><img src="/img/rahman.webp" alt="The page for Ar-Rahman, The Most Gracious" width="720" height="1600" loading="lazy"></div>
-          <div class="phone"><img src="/img/sabur.webp" alt="The page for As-Sabur, The Most Patient" width="720" height="1600" loading="lazy"></div>
+          <div class="phone"><img src="/img/rahman.webp" alt="The page for Ar-Rahman, The Most Gracious" width="780" height="1688" loading="lazy"></div>
+          <div class="phone"><img src="/img/sabur.webp" alt="The page for As-Sabur, The Most Patient" width="780" height="1688" loading="lazy"></div>
         </div>
       </div>
 
@@ -283,8 +267,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
           </ul>
         </div>
         <div class="shots">
-          <div class="phone"><img src="/img/grid.webp" alt="The Names in a grid" width="720" height="1600" loading="lazy"></div>
-          <div class="phone"><img src="/img/search.webp" alt="Searching for a Name" width="720" height="1600" loading="lazy"></div>
+          <div class="phone"><img src="/img/grid.webp" alt="The Names in a grid" width="780" height="1688" loading="lazy"></div>
+          <div class="phone"><img src="/img/search.webp" alt="Searching for a Name" width="780" height="1688" loading="lazy"></div>
         </div>
       </div>
 
@@ -301,8 +285,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
           </ul>
         </div>
         <div class="shots">
-          <div class="phone"><img src="/img/favourites.webp" alt="Favourite Names" width="720" height="1600" loading="lazy"></div>
-          <div class="phone"><img src="/img/settings.webp" alt="Settings: theme, card contents and Arabic text size" width="720" height="1600" loading="lazy"></div>
+          <div class="phone"><img src="/img/favourites.webp" alt="Favourite Names" width="780" height="1688" loading="lazy"></div>
+          <div class="phone"><img src="/img/settings.webp" alt="Settings: theme, card contents and Arabic text size" width="780" height="1688" loading="lazy"></div>
         </div>
       </div>
     </div>
