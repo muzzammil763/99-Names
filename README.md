@@ -83,6 +83,14 @@ and Google Sans are full copies.
 Android release builds are still signed with the debug key — add a signing
 config in `android/app/build.gradle.kts` before publishing.
 
+## License & Branding
+
+The source code is licensed under [MIT](LICENSE): use, modify, and share all or part of it, including commercially, while keeping the required copyright and license notices.
+
+The **99 Names name, logos, app icons, and branded artwork are not licensed for reuse as your own app branding**. Published forks should use their own identity unless permission is granted. See the [branding policy](BRANDING.md); third-party content retains its own terms.
+
+99 Names is fully free. To improve the official app under the 99 Names name, contributions here are always welcome.
+
 ## Contributing
 
 Contributions are welcome! Open an issue or send a pull request.
