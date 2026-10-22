@@ -42,6 +42,18 @@ This renders the logo to `branding/` and writes the iOS icons plus Android's
 legacy, adaptive (background + foreground) and Android 13 themed icons.
 Needs ImageMagick.
 
+## Website
+
+`website/` is the landing page, live at
+https://asmaul-husna.deadbase763.workers.dev (Cloudflare Workers static
+assets). `node build.mjs` fills `src/index.html` with all 99 Names read from
+`lib/src/data/names.dart`, so the site's Names section never drifts from the
+app, and copies `public/` (fonts from `assets/fonts/`, screenshots, the privacy
+policy from `docs/privacy-policy/`) into `dist/`. Deploy with
+`cd website && npm run deploy`. Arabic and Urdu use the app's trimmed fonts, so
+any new Arabic or Urdu text on the site must already exist in the app; Boldonse
+and Google Sans are full copies.
+
 ## Release
 
     flutter build apk --release --split-per-abi
