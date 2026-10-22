@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     SizedBox(height: context.r(8)),
-                    const EditorialTitle('Asmaul\nHusna', size: 30),
+                    const EditorialTitle('99 Names', size: 30),
                     SizedBox(height: context.r(12)),
                     const _VerseCard(),
                     SizedBox(height: context.r(12)),

@@ -81,7 +81,7 @@ class _SplashScreenState extends State<SplashScreen>
                         color: p.gold,
                       ),
                     ),
-                    const EditorialTitle('Asmaul Husna', size: 32),
+                    const EditorialTitle('99 Names', size: 32),
                     SizedBox(height: context.r(12)),
                     Eyebrow('THE 99 BEAUTIFUL NAMES', color: p.muted),
                     Spacer(),

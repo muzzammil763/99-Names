@@ -8,6 +8,21 @@ import '../ui/widgets.dart';
 import 'settings_store.dart';
 
 const appVersion = '1.0.0';
+const _appActions = MethodChannel('com.muzamil.asmaulhusna/app_actions');
+
+Future<void> _openAppAction(BuildContext context, String action) async {
+  try {
+    await _appActions.invokeMethod<void>(action);
+  } on PlatformException {
+    if (context.mounted) {
+      showToast(context, 'Could not open this action. Please try again.');
+    }
+  } on MissingPluginException {
+    if (context.mounted) {
+      showToast(context, 'This action is available on Android and iOS.');
+    }
+  }
+}
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -175,7 +190,7 @@ class SettingsScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Asmaul Husna',
+                                  '99 Names',
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700,
@@ -210,6 +225,49 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: context.r(16)),
+                const Eyebrow('SUPPORT THE APP'),
+                const SizedBox(height: 8),
+                PatternCard(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        leading: Icon(Icons.share_outlined, color: p.accent),
+                        title: Text(
+                          'Share app',
+                          style: TextStyle(color: p.title),
+                        ),
+                        subtitle: Text(
+                          'Share 99 Names with friends and family',
+                          style: TextStyle(color: p.muted),
+                        ),
+                        onTap: () => _openAppAction(context, 'share'),
+                      ),
+                      Divider(
+                        height: 1,
+                        indent: 16,
+                        endIndent: 16,
+                        color: p.border,
+                      ),
+                      ListTile(
+                        leading: Icon(
+                          Icons.star_outline_rounded,
+                          color: p.accent,
+                        ),
+                        title: Text(
+                          'Rate on Google Play',
+                          style: TextStyle(color: p.title),
+                        ),
+                        subtitle: Text(
+                          'Leave a review on the Play Store',
+                          style: TextStyle(color: p.muted),
+                        ),
+                        onTap: () => _openAppAction(context, 'rate'),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: context.r(16)),
                 const Eyebrow('FONTS & CREDITS'),
                 const SizedBox(height: 8),
                 PatternCard(
@@ -235,7 +293,7 @@ class SettingsScreen extends StatelessWidget {
                   child: TextButton(
                     onPressed: () => showLicensePage(
                       context: context,
-                      applicationName: 'Asmaul Husna',
+                      applicationName: '99 Names',
                       applicationVersion: appVersion,
                     ),
                     child: const Text('Open Source Licences'),

@@ -35,7 +35,7 @@ class AsmaulHusnaApp extends StatelessWidget {
   Widget build(BuildContext context) => ListenableBuilder(
     listenable: SettingsStore.instance,
     builder: (context, _) => MaterialApp(
-      title: 'Asmaul Husna',
+      title: '99 Names',
       debugShowCheckedModeBanner: false,
       themeMode: SettingsStore.instance.themeMode,
       theme: buildTheme(Brightness.light),
