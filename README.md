@@ -1,5 +1,5 @@
 <div align="center">
-  <img src=".github/readme/icon.png" alt="99 Names app icon" width="128" height="128">
+  <a href="https://99asmaulhusna.pages.dev"><img src="store/playstore/feature_graphic.png" alt="99 Names - Asmaul Husna" width="1024"></a>
   <h1>99 Names - Asmaul Husna</h1>
   <p>The 99 beautiful names of Allah. Arabic, English and Urdu. Fully offline.</p>
   <a href="https://play.google.com/store/apps/details?id=com.muzamil.asmaulhusna"><img src=".github/readme/google-play.svg" alt="Get it on Google Play" width="220" height="72"></a>
@@ -90,7 +90,3 @@ Contributions are welcome! Open an issue or send a pull request.
 ## Contributors
 
 <a href="https://github.com/muzzammil763"><img src=".github/readme/contributor.png" alt="muzzammil763" title="muzzammil763" width="64" height="64"></a>
-
-## Feature graphic
-
-<img src="store/playstore/feature_graphic.png" alt="99 Names - Asmaul Husna feature graphic" width="1024">
